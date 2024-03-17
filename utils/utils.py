@@ -68,49 +68,36 @@ class SavePeftModelCallback(TrainerCallback):
         return control
 
 LANG_TABLE = {
+    "am": "Amharic",
     "en": "English",
-    "de": "German",
-    "fr": "French",
-    "cs": "Czech",
-    "is": "Icelandic",
-    "zh": "Chinese",
-    "ja": "Japanese",
-    "ru": "Russian",
-    "uk": "Ukrainian",
+    "lg": "Luganda",
     "ha": "Hausa",
-    "ro": "Romanian",
-    "gu": "Gujarati",
+    "ns": "Northern Sotho",
+    "yo": "Yoruba",
+    "zu": "Zulu",
 }
 
 ## Prefix and suffix for prompt in target language (only from English to target language if the target is non-English)
 ## Note that prefix and suffix for other languages are only used for zero-shot evaluation of other models.
 ## ALMA should only use English Prompt.
 PREFIX = {
-    "de": "Übersetzen Sie dies vom Englischen ins Deutsche:\nEnglisch: ",
-    "fr": "Traduisez ceci de l'anglais vers le français :\nAnglais: ",
-    "cs": "Přeložte toto z angličtiny do češtiny:\nanglicky: ",
-    "is": "Þýddu þetta úr ensku yfir á íslensku:\nEnska: ",
-    "zh": "将其从英文翻译成中文：\n英语：",
-    "ja": "これを英語から日本語に翻訳してください:\n英語：",
-    "ru": "Переведите это с английского на русский:\nАнглийский: ",
-    "uk": "Перекладіть це з англійської на українську:\nАнглійська: ",
+    "am": "ይህንን ከእንግሊዝኛ ወደ አማርኛ ይተርጉሙ:\nእንግሊዝኛ: ",
+    "lg": "Kivvuunula kino okuva mu English okudda mu Luganda:\nEnglish: ",
     "ha": "Fassara wannan daga Turanci zuwa Hausa:\nTuranci: ",
+    "ns": "Fetolela go tloga go Sekgowa go ya go Sesotho sa Leboa:\nSekgowa: ",
+    "yo": "Túmọ̀ èyí láti Gẹ̀ẹ́sì sí Yorùbá:\nGẹ̀ẹ́sì: ",
+    "zu": "Humusha lokhu kusuka kwisiNgisi kuya kwisiZulu:\nIsiNgisi: ",
 }
 
 SUFFIX = {
-    "en": "\nEnglish:",
-    "de": "\nDeutsch:",
-    "fr": "\nFrançais :",
-    "cs": "\nčesky:",
-    "is": "\nÍslenska:",
-    "zh": "\n中文：",
-    "ja": "\n日本語：",
-    "ru": "\nРусский:",
-    "uk": "\nУкраїнська:",
-    "ha": "\nHausa:",
+    "am": "\nAmharic",
+    "en": "\nEnglish",
+    "lg": "\nLuganda",
+    "ha": "\nHausa",
+    "ns": "\nSepedi",
+    "yo": "\nYoruba",
+    "zu": "\nisiZulu",
 }
-
-
 
 def load_mmt_dataset(pairs, data_args, model_args, training_args, logger):
     seen_files =set([])
